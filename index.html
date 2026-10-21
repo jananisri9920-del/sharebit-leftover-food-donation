@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="ShareBit connects surplus food with people who need it. Share food, reduce waste, make a difference.">
+<title>ShareBit — Good Food Deserves to Be Shared</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-icon">S</span><span>share<span class="brand-accent">bit</span><small>FOOD • COMMUNITY • CARE</small></span></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+  <nav id="navLinks"><a href="#how">How it works</a><a href="#discover">Find food</a><a href="#impact">Our impact</a><button class="btn btn-outline hidden" id="dashboardNav">Dashboard</button><button class="btn btn-outline" id="loginNav">Log in</button><button class="btn btn-primary" id="donateNav">Donate food ↗</button></nav>
+</header>
+<main>
+<section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow"><span class="pulse"></span> GOOD FOOD. GOOD PEOPLE. BETTER WORLD.</div>
+    <h1>One small share.<br>One <span class="highlight">big difference.</span></h1>
+    <p class="hero-text">Connect your extra food with someone who needs it. Together, we can turn leftovers into love and make food waste a thing of the past.</p>
+    <div class="hero-actions"><button class="btn btn-primary btn-large" id="heroDonate">Share a meal <span>↗</span></button><a class="btn btn-light btn-large" href="#discover">Find available food ↓</a></div>
+    <div class="trust-row"><div class="avatars"><span>🍲</span><span>🥗</span><span>🥖</span></div><div><strong>Every meal matters</strong><small>Be part of your local food-sharing community.</small></div></div>
+  </div>
+  <div class="hero-art">
+    <div class="sun-shape"></div><div class="food-card main-food"><div class="food-photo">🥘</div><div class="food-caption"><span class="available-dot"></span><div><strong>Freshly prepared meals</strong><small>Ready to be shared with care</small></div><span class="heart">♡</span></div></div>
+    <div class="floating-note note-top"><span>🌱</span><div><strong>Less waste</strong><small>More hope</small></div></div>
+    <div class="floating-note note-bottom"><span>💛</span><div><strong>Share kindness</strong><small>One meal at a time</small></div></div>
+    <div class="decor decor-one">✳</div><div class="decor decor-two">✦</div>
+  </div>
+</section>
+<section class="stats" id="impact">
+  <div><span class="stat-icon">🍱</span><strong id="statMeals">0</strong><small>Food portions shared</small></div>
+  <div><span class="stat-icon">🤲</span><strong id="statDonations">0</strong><small>Community donations</small></div>
+  <div><span class="stat-icon">✨</span><strong id="statCollected">0</strong><small>Donations collected</small></div>
+  <div class="stats-message"><strong>Good food should<br>bring people together.</strong><span>Let's make it happen.</span></div>
+</section>
+<section class="section how-section" id="how">
+  <div class="section-heading"><span class="eyebrow">SIMPLE AS 1, 2, 3</span><h2>Sharing food is <span class="highlight">easy.</span></h2><p>A little effort can make someone's day a whole lot better.</p></div>
+  <div class="steps">
+    <article class="step-card"><span class="step-number">01</span><div class="step-emoji peach">🍲</div><h3>Post your extra food</h3><p>Have safe, untouched surplus food? Add the details and pickup time in a few simple steps.</p></article>
+    <article class="step-card"><span class="step-number">02</span><div class="step-emoji yellow">🤝</div><h3>Connect with someone</h3><p>Local receivers can discover available donations and send a request to the donor.</p></article>
+    <article class="step-card"><span class="step-number">03</span><div class="step-emoji lilac">💛</div><h3>Make a difference</h3><p>Coordinate collection, update the donation status, and help good food find a good home.</p></article>
+  </div>
+</section>
+<section class="section discover-section" id="discover">
+  <div class="discover-heading"><div><span class="eyebrow">FROM YOUR COMMUNITY</span><h2>Food worth <span class="highlight">sharing.</span></h2><p>Discover the latest available food donations.</p></div><div class="search-box"><span>⌕</span><input id="searchInput" placeholder="Search food or location..." aria-label="Search food or location"><button id="searchBtn">Search</button></div></div>
+  <div id="donationGrid" class="donation-grid"><div class="loading">Loading community donations…</div></div>
+  <div class="center-actions"><button class="btn btn-light" id="refreshBtn">Refresh listings ↻</button></div>
+</section>
+<section class="cta-section"><div class="cta-emoji">🥗</div><div><span class="eyebrow">YOUR EXTRA CAN BE SOMEONE'S ENOUGH</span><h2>Got food to spare?</h2><p>Make someone's day a little brighter. Share it with your community.</p></div><button class="btn btn-dark btn-large" id="ctaDonate">Donate food ↗</button></section>
+</main>
+<footer><a class="brand footer-brand" href="#"><span class="brand-icon">S</span><span>share<span class="brand-accent">bit</span><small>FOOD • COMMUNITY • CARE</small></span></a><p>Don't waste food. Share it. Make a difference.</p><span>© <span id="year"></span> ShareBit Community</span></footer>
+
+<div class="modal-backdrop" id="authModal"><section class="modal"><button class="modal-close" data-close="authModal">×</button><span class="eyebrow">WELCOME TO SHAREBIT</span><h2 id="authTitle">Join the community</h2><p id="authSubtitle">A little kindness goes a long way.</p><div class="auth-tabs"><button class="active" data-authmode="login">Log in</button><button data-authmode="register">Create account</button></div><form id="authForm">
+<label id="nameWrap" class="hidden">Full name<input id="authName" autocomplete="name" placeholder="Your name"></label>
+<label>Email address<input id="authEmail" type="email" required autocomplete="email" placeholder="you@example.com"></label>
+<label id="phoneWrap" class="hidden">Phone number<input id="authPhone" autocomplete="tel" placeholder="10-digit phone number"></label>
+<label>Password<input id="authPassword" type="password" required minlength="8" autocomplete="current-password" placeholder="At least 8 characters"></label>
+<label id="roleWrap" class="hidden">I want to<select id="authRole"><option value="donor">Donate surplus food</option><option value="receiver">Receive available food</option></select></label>
+<button class="btn btn-primary full-width" type="submit" id="authSubmit">Log in</button><p class="form-message" id="authMessage"></p></form></section></div>
+
+<div class="modal-backdrop" id="donationModal"><section class="modal modal-wide"><button class="modal-close" data-close="donationModal">×</button><span class="eyebrow">A GOOD THING STARTS HERE</span><h2>Share your extra food.</h2><p>Tell the community what you have available.</p><form id="donationForm" class="form-grid">
+<label>Food name *<input id="foodName" required maxlength="100" placeholder="e.g. Vegetable rice"></label>
+<label>Food category *<select id="foodType" required><option value="">Choose category</option><option>Vegetarian</option><option>Non-vegetarian</option><option>Vegan</option><option>Bakery</option><option>Packaged</option></select></label>
+<label>Quantity *<input id="quantity" type="number" min="1" max="100000" required placeholder="e.g. 20"></label>
+<label>Unit<select id="unit"><option value="meals">Meals / portions</option><option value="kg">Kilograms (kg)</option><option value="packets">Packets</option></select></label>
+<label class="span-two">Pickup location *<input id="foodLocation" required maxlength="200" placeholder="Area, street or pickup address"></label>
+<label>Prepared at *<input id="preparedAt" type="datetime-local" required></label>
+<label>Pickup before *<input id="pickupUntil" type="datetime-local" required></label>
+<label>Contact phone *<input id="contactPhone" required placeholder="Phone number"></label>
+<label class="span-two">Extra details<textarea id="foodDescription" maxlength="500" rows="3" placeholder="Ingredients, packaging, quantity notes…"></textarea></label>
+<p class="food-safety span-two">Food safety matters: only share food that has been handled safely. Clearly mention allergens and keep food at safe temperatures.</p>
+<button class="btn btn-primary full-width span-two" type="submit">Publish donation ↗</button><p id="donationMessage" class="form-message span-two"></p></form></section></div>
+<div class="modal-backdrop" id="dashboardModal"><section class="modal modal-wide dashboard-modal"><button class="modal-close" data-close="dashboardModal">×</button><span class="eyebrow">YOUR SHAREBIT SPACE</span><h2 id="dashboardTitle">Dashboard</h2><p id="dashboardSubtitle">Track donations and requests.</p><div id="dashboardContent"><div class="loading">Loading dashboard…</div></div></section></div>
+<div class="toast" id="toast" role="status"></div>
+<script src="/app.js"></script>
+</body></html>
